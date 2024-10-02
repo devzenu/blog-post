@@ -1,0 +1,7 @@
+POST http://localhost:8000/tags
+
+{
+    "name":"google",
+    "slug":"google",
+    "description":"All posts are of google"
+}

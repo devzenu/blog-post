@@ -1,0 +1,26 @@
+PATCH http://localhost:8000/posts
+Content-Type:application/json
+
+
+
+{   "id":26,
+    "title":"this is nest js udemy prac projec with  another tag typescript ",
+    "postType":"page",
+    "slug":"udemy-course-updated-version",
+    "status":"published",
+    "content":"test content ",
+    "schema":"{ \r \n \"@context \": \"https: \/\/ schema.org \", \r \n \"@type \": \"Person\"\r\n}",
+    "featuredImageUrl":"https://images.app.goo.gl/fQBgxYms2ht6vS1C6",
+    "publishedOn":"2024-07-16T07:46:32+0000",
+    //"tags":["nest js ","typescript","node js"],
+    "metaOptions":
+        {
+         "metaValue":"{\" sidebarEnabled\":true, \"sidebarEnabled\":true}"
+        },
+        "authorId":14,
+        "tags":[4,3]
+
+
+
+    
+}

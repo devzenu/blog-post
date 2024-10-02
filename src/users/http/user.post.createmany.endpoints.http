@@ -1,0 +1,30 @@
+POST http://localhost:8000/users/create-many
+Content-Type:application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI1LCJlbWFpbCI6ImFsaWZAdG9tLmNvbSIsImlhdCI6MTcyNzUyMjg1MiwiZXhwIjoxNzI3NTI2NDUyLCJhdWQiOiJsb2NhbGhvc3Q6ODAwMCIsImlzcyI6ImxvY2FsaG9zdDo4MDAwIn0.PtZqTq_O1-qRHWF5bSAM9vkY8rVu36uiTiG5zswwgyk
+
+
+
+
+
+
+
+
+{
+    "users":[
+        {
+            "firstName":"hafsa",
+            "lastName":"ijaz",
+            "email":"alif@tom.com",
+            "password":"3bC@d8Qa"
+           
+        },
+        {
+           "firstName":"birdi",
+            "lastName":"luxi",
+            "email":"bidi@jd.com",
+            "password":"3bC@d8Qa"
+        }
+    ]
+}
+
+

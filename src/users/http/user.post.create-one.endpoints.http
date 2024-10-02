@@ -1,0 +1,12 @@
+POST http://localhost:8000/users
+Content-Type:application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI1LCJlbWFpbCI6ImFsaWZAdG9tLmNvbSIsImlhdCI6MTcyNzYxOTEyNywiZXhwIjoxNzI3NjIyNzI3LCJhdWQiOiJsb2NhbGhvc3Q6ODAwMCIsImlzcyI6ImxvY2FsaG9zdDo4MDAwIn0.TVjuG9JGF8DPGjTZqEAzy7MLzG_bRdFZxGqY1NgOWjU
+
+
+
+
+          { "firstName":"hafsa",
+            "lastName":"ijaz",
+            "email":"alif@tom.com",
+            "password":"3bC@d8Qa"
+           }

@@ -1,0 +1,3 @@
+GET http://localhost:8000/users/43535/
+?limit=10
+&page=1

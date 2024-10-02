@@ -1,0 +1,23 @@
+POST http://localhost:8000/posts
+Content-Type:application/json
+
+
+{
+    "title":"creating post& metaoptions using cascade",
+    "postType":"story",
+    "slug":"old-with-nestjszz",
+    "status":"draft",
+    "content":"test content ",
+    "schema":"{ \r \n \"@context \": \"https: \/\/ schema.org \", \r \n \"@type \": \"Person\"\r\n}",
+    "featuredImageUrl":"https://images.app.goo.gl/kcFwkG8z79Nc",
+    "publishedOn":"2025-05-16T07:46:32+0000",
+    //"tags":["nest js ","typescript","node js"],
+    "metaOptions":
+        {
+         "metaValue":"{\" sidebarEnabled\":true, \"sidebarEnabled\":true}"
+        },
+        "authorId":5
+
+
+    
+}
