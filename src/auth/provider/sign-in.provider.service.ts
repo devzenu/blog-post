@@ -11,6 +11,7 @@ import { HashingProvider } from './hasing.provider';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigType } from '@nestjs/config';
 import jwtConfig from '../config/jwt.config';
+import { ActiveUserData } from '../interfaces/active-user-data.interface';
 
 @Injectable()
 export class SignInProvider {
@@ -68,7 +69,7 @@ export class SignInProvider {
         // for the id of user we will pass sub .. means subject
         sub: user.id,
         email: user.email,
-      },
+      } as ActiveUserData,
       //another argument we pass here thats itself is object
       // this object take all required particular information thats required in genrating jwt token
       {

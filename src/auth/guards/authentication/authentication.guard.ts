@@ -5,13 +5,16 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
+import { Observable } from 'rxjs';
 import { AccessTokenGuard } from '../access-token/access-token.guard';
 import { AuthType } from 'src/auth/enums/auth-type.enum';
 import { AUTH_TYPE_KEY } from 'src/auth/constants/auth.constants';
 
 @Injectable()
 export class AuthenticationGuard implements CanActivate {
-  private static readonly defaultAuthType: AuthType.Bearer;
+  // Set the default Auth Type
+  private static readonly defaultAuthType = AuthType.Bearer;
+  // Create authTypeGuardMap
   private readonly authTypeGuardMap: Record<
     AuthType,
     CanActivate | CanActivate[]
@@ -24,7 +27,7 @@ export class AuthenticationGuard implements CanActivate {
      * The Reflector class from NestJS core is injected as a dependency
      * to access and manipulate metadata within the guard.
      */
-    private readonly reflactor: Reflector,
+    private readonly reflector: Reflector,
 
     /**
      * Injects the AccessTokenGuard as a dependency to handle
@@ -34,10 +37,10 @@ export class AuthenticationGuard implements CanActivate {
   ) {}
   async canActivate(context: ExecutionContext): Promise<boolean> {
     //authTypes from the reflactor
-    const authTypes = this.reflactor.getAllAndOverride(AUTH_TYPE_KEY, [
-      context.getHandler(),
-      context.getClass(),
-    ]) ?? [AuthenticationGuard.defaultAuthType];
+    const authTypes = this.reflector.getAllAndOverride<AuthType[]>(
+      AUTH_TYPE_KEY,
+      [context.getHandler(), context.getClass()],
+    ) ?? [AuthenticationGuard.defaultAuthType];
 
     //show authTypes
 
@@ -51,17 +54,21 @@ export class AuthenticationGuard implements CanActivate {
     //default error
     //an error needs be thrown out whenever a user is not authorized to access specific endpoints
 
-    const error = new UnauthorizedException();
+    let error = new UnauthorizedException();
 
     //loop guards and fire  canActivate
     for (const instance of guards) {
-      console.log(instance);
+      //  console.log(instance);
+      // Decalre a new constant
       const canActivate = await Promise.resolve(
+        // Here the AccessToken Guard Will be fired and check if user has permissions to acces
+        // Later Multiple AuthTypes can be used even if one of them returns true
+        // The user is Authorised to access the resource
         instance.canActivate(context),
       ).catch((err) => {
-        error: err;
+        error = err;
       });
-      // console.log(canActivate);
+      console.log(canActivate);
       if (canActivate) {
         return true;
       }

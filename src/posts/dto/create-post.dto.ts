@@ -87,7 +87,7 @@ export class CreatePostDto {
   featuredImageUrl?: string;
 
   @ApiPropertyOptional({
-    description: 'the data on which the blog post is published',
+    description: 'The date on which the blog post is published',
     example: '2024-03-16T07:46:32+0000',
   })
   @IsISO8601()
@@ -121,13 +121,4 @@ export class CreatePostDto {
   @ValidateNested({ each: true })
   @Type(() => CreatePostMetaOptionsDto)
   metaOptions?: CreatePostMetaOptionsDto | null;
-
-  @ApiProperty({
-    type: 'integer',
-    required: true,
-    example: 1,
-  })
-  @IsInt()
-  @IsNotEmpty()
-  authorId: number;
 }

@@ -1,23 +1,31 @@
+{{
+  exports.publishedOn = new Date().toString()
+}}
 POST http://localhost:8000/posts
+
 Content-Type:application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI1LCJlbWFpbCI6ImFsaWZAdG9tLmNvbSIsImlhdCI6MTcyODExMTg4OSwiZXhwIjoxNzI4MTE1NDg5LCJhdWQiOiJsb2NhbGhvc3Q6ODAwMCIsImlzcyI6ImxvY2FsaG9zdDo4MDAwIn0.oNx5h42VjzJRT66sktXy2J5li4_8dEnL1W183xnUGp0
+
+
 
 
 {
-    "title":"creating post& metaoptions using cascade",
-    "postType":"story",
-    "slug":"old-with-nestjszz",
+    "title":"whats  new in this NestJs course ",
+    "postType":"post",
+    "slug":"old-with-nestjs-13",
     "status":"draft",
     "content":"test content ",
-    "schema":"{ \r \n \"@context \": \"https: \/\/ schema.org \", \r \n \"@type \": \"Person\"\r\n}",
+    "schema":"{\r\n \"@context\": \"https:\/\/schema.org\",\r\n \"@type\": \"Person\"\r\n }",
     "featuredImageUrl":"https://images.app.goo.gl/kcFwkG8z79Nc",
-    "publishedOn":"2025-05-16T07:46:32+0000",
-    //"tags":["nest js ","typescript","node js"],
+     "tags":[4,5],
+      "publishedOn": "{{publishedOn}}",
     "metaOptions":
         {
-         "metaValue":"{\" sidebarEnabled\":true, \"sidebarEnabled\":true}"
-        },
-        "authorId":5
+         "metaValue": "{\"sidebarEnabled\": true, \"footerActive\":true}"
+        }
+       
+
+}
 
 
     
-}
